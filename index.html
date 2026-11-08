@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VinFast EREV - Marketing Mindmap</title>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 30px;
+    background: #fffaf5;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    color: #30483d;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    color: #28764d;
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+header p {
+    color: #777;
+    font-size: 16px;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+button {
+    background: #28764d;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 22px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #185b38;
+}
+
+#mindmap-container {
+    width: 100%;
+    min-height: 750px;
+    overflow: auto;
+    background: #fffdf9;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 5px 25px rgba(0,0,0,.06);
+}
+
+.mermaid {
+    display: flex;
+    justify-content: center;
+    min-width: 1200px;
+}
+
+.mermaid svg {
+    width: 100%;
+    height: auto;
+    max-width: 1800px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 25px;
+    color: #888;
+    font-size: 13px;
+}
+
+@media print {
+    body {
+        padding: 0;
+        background: white;
+    }
+
+    .toolbar {
+        display: none;
+    }
+
+    #mindmap-container {
+        box-shadow: none;
+        overflow: visible;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>VINFAST EREV</h1>
+    <p>FIVE-YEAR INTEGRATED MARKETING & SALES STRATEGY</p>
+    <p>APRIL 2028 – MARCH 2033</p>
+</header>
+
+<div class="toolbar">
+    <button onclick="zoomIn()">＋ Zoom In</button>
+    <button onclick="zoomOut()">－ Zoom Out</button>
+    <button onclick="resetZoom()">Reset</button>
+    <button onclick="downloadSVG()">Download SVG</button>
+    <button onclick="window.print()">Print / PDF</button>
+</div>
+
+<div id="mindmap-container">
+<pre class="mermaid">
+mindmap
+  root((VINFAST EREV<br/>MARKETING & SALES<br/>2028–2033))
+
+    MARKETING STRATEGY
+      Differentiation Strategy
+      Market Penetration
+      Customer Experience
+      Target Customers
+        B2C Urban Commuters
+        B2B Logistics
+        Technology-conscious Users
+
+    MARKETING MIX 5Ps
+      PRODUCT
+        3500W Electric Motor
+        50cc Atkinson Generator
+        LFP Battery
+        EREV Transporter
+        EREV Gen 2
+      PRICE
+        Value-based Pricing
+        Competitive Pricing
+        Trade-in Incentives
+        Flexible Financing
+      PROMOTION
+        Digital Marketing
+        TVC and Social Media
+        PR and KOL Reviews
+        Test-drive Roadshows
+        Green SM Partnership
+      PLACE
+        Vin3S Showrooms
+        Authorized Dealers
+        B2B Direct Sales
+        Green SM Channel
+      SERVICE
+        Warranty
+        After-sales Support
+        CRM and Loyalty
+
+    SALES STRATEGY
+      B2C Sales Team
+      Regional Sales Team
+      B2B Fleet Sales
+      Partnership Development
+      Consultative Selling
+      Test-drive Conversion
+      Sales Incentives
+
+    FIVE-YEAR ROADMAP
+      PHASE 1 2028-2029
+        Product Launch
+        Brand Awareness
+        V2L Education
+        Budget 12%
+      PHASE 2 2029-2030
+        Customer Conversion
+        Trade-in Programs
+        Dealer Expansion
+        Budget 9%
+      PHASE 3 2030-2031
+        EREV Transporter
+        B2B Logistics
+        Fleet Partnerships
+        Budget 9%
+      PHASE 4 2031-2032
+        Indonesia and Philippines
+        CRM and Cross-selling
+        Increase CLV
+        Budget 10%
+      PHASE 5 2032-2033
+        EREV Gen 2 Launch
+        AI Energy Management
+        Customer Loyalty
+        Budget 10%
+
+    PERFORMANCE MEASUREMENT
+      Brand Awareness
+      Campaign Reach
+      Website Traffic
+      Qualified Leads
+      Test-drive Conversion
+      Sales Revenue
+      CPL and CPO
+      Customer Satisfaction
+      NPS and Marketing ROI
+
+    EXPECTED OUTCOMES
+      Stronger Brand Positioning
+      Increased Sales
+      B2B Market Expansion
+      International Growth
+      Customer Retention
+      Higher Customer Lifetime Value
+      Long-term Market Growth
+</pre>
+</div>
+
+<footer>
+    VINFAST EREV | MARKETING PLAN 2028–2033
+</footer>
+
+<script>
+mermaid.initialize({
+    startOnLoad: true,
+    theme: "base",
+    securityLevel: "loose",
+    mindmap: {
+        padding: 35
+    },
+    themeVariables: {
+        background: "#fffdf9",
+        primaryColor: "#c8e7dc",
+        primaryTextColor: "#30483d",
+        primaryBorderColor: "#7bb9a1",
+        lineColor: "#30483d",
+        fontFamily: "Trebuchet MS, Arial",
+        fontSize: "20px"
+    }
+});
+
+let zoom = 1;
+
+function updateZoom() {
+    const svg = document.querySelector(".mermaid svg");
+    if (svg) {
+        svg.style.width = (zoom * 100) + "%";
+        svg.style.maxWidth = "none";
+    }
+}
+
+function zoomIn() {
+    zoom = Math.min(zoom + 0.15, 2.5);
+    updateZoom();
+}
+
+function zoomOut() {
+    zoom = Math.max(zoom - 0.15, 0.5);
+    updateZoom();
+}
+
+function resetZoom() {
+    zoom = 1;
+    updateZoom();
+}
+
+function downloadSVG() {
+    const svg = document.querySelector(".mermaid svg");
+
+    if (!svg) {
+        alert("Mindmap is still loading!");
+        return;
+    }
+
+    const clone = svg.cloneNode(true);
+    clone.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+
+    const data = new XMLSerializer().serializeToString(clone);
+    const blob = new Blob([data], {
+        type: "image/svg+xml;charset=utf-8"
+    });
+
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = "VinFast-EREV-Marketing-Mindmap.svg";
+    link.click();
+
+    URL.revokeObjectURL(url);
+}
+</script>
+
+</body>
+</html>
